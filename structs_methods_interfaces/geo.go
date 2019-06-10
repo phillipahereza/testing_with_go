@@ -6,16 +6,20 @@ import (
 
 // Rectangle 4 sided geometry
 type Rectangle struct {
-	Width float64
+	Width  float64
 	Height float64
 }
 
-
-// Circle does 
+// Circle does
 type Circle struct {
 	Radius float64
 }
 
+// Triangle does
+type Triangle struct {
+	Height float64
+	Base   float64
+}
 
 // Perimeter returns the perimeter
 func Perimeter(rectangle Rectangle) float64 {
@@ -28,6 +32,16 @@ func (rectangle Rectangle) Area() float64 {
 }
 
 // Area returns area
+func (triangle Triangle) Area() float64 {
+	return 0.5 * triangle.Base * triangle.Height
+}
+
+// Area returns area
 func (circle Circle) Area() float64 {
 	return math.Pi * circle.Radius * circle.Radius
+}
+
+// Shape does shape things
+type Shape interface {
+	Area() float64
 }
